@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   return Response.json(
-    Array.from({ length: 6 }, () => ({
+    Array.from({ length: 40 }, () => ({
       id: nanoid(),
       text: faker.lorem.sentence(),
     }))
