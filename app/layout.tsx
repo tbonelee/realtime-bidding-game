@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_KR, Roboto } from "next/font/google";
 import "./globals.css";
 import { cls } from "@/lib/class-name";
+import Providers from "@/app/providers";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={cls(roboto.className, notoSansKR.className)}>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
