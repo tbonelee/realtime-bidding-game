@@ -1,8 +1,27 @@
-import { Participant } from "@/lib/dto/participant";
+import { BidSuccess, Participant } from "@/lib/dto/participant";
 import { nanoid } from "nanoid";
 import { faker } from "@faker-js/faker";
 
 const PARTICIPANTS_NUM = 6;
+
+const getMockBidSuccess = (
+  line: BidSuccess["candidate"]["line"]
+): BidSuccess => ({
+  bidAmount: Math.floor(Math.random() * 1000),
+  candidate: {
+    name: faker.person.firstName(),
+    line,
+    imgUrl: faker.image.urlPicsumPhotos({
+      width: 200,
+      height: 200,
+    }),
+    id: nanoid(),
+  },
+});
+
+const goRandomByPercent = (percent: number) => {
+  return Math.random() < percent;
+};
 
 export const mockParticipants: Participant[] = Array.from(
   { length: PARTICIPANTS_NUM },
@@ -10,11 +29,11 @@ export const mockParticipants: Participant[] = Array.from(
     id: nanoid(),
     name: faker.person.firstName(),
     items: {
-      MID: null,
-      BOTTOM: null,
-      TOP: null,
-      JUNGLE: null,
-      SUPPORT: null,
+      MID: goRandomByPercent(0.5) ? getMockBidSuccess("MID") : null,
+      BOTTOM: goRandomByPercent(0.5) ? getMockBidSuccess("BOTTOM") : null,
+      TOP: goRandomByPercent(0.5) ? getMockBidSuccess("TOP") : null,
+      JUNGLE: goRandomByPercent(0.5) ? getMockBidSuccess("JUNGLE") : null,
+      SUPPORT: goRandomByPercent(0.5) ? getMockBidSuccess("SUPPORT") : null,
     },
   })
 );

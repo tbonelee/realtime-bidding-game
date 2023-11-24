@@ -17,7 +17,7 @@ const GameInfoLogBox = ({ logs }: { logs: Log[] }) => {
 
 export const GameInfoContainer = ({ logs }: { logs: Log[] }) => {
   return (
-    <div className={"col-span-2"}>
+    <div className={"col-span-2 m-6"}>
       <div className={"text-2xl font-semibold"}>{"경매 진행 정보"}</div>
       <GameInfoLogBox logs={logs} />
     </div>

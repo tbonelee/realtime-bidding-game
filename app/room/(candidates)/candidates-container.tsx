@@ -110,7 +110,7 @@ export const CandidatesContainer = ({
   candidatesFailedToAuction: Candidate[];
 }) => {
   return (
-    <div className={"col-span-3"}>
+    <div className={"col-span-3 m-6"}>
       {/*아직 경매되지 않은 선수 목록*/}
       <CandidatesContainerByPhase
         title={"경매 후보"}

@@ -28,7 +28,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={cls(roboto.className, notoSansKR.className)}>
+      <body
+        className={cls(
+          roboto.className,
+          notoSansKR.className,
+          "aspect-video",
+          "h-screen",
+          "m-auto"
+        )}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>

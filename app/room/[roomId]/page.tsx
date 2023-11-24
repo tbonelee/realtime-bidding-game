@@ -72,7 +72,7 @@ export default function RoomPage({ params }: { params: { roomId: string } }) {
   }, [candidates]);
 
   return (
-    <div className={"h-152 grid h-96 grid-cols-8 gap-2"}>
+    <div className={"grid h-full w-full grid-cols-8 grid-rows-1 gap-2"}>
       {participants && <ParticipantsContainer participants={participants} />}
 
       {logs && <GameInfoContainer logs={logs} />}
