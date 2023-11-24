@@ -1,8 +1,9 @@
 "use client";
 
-import { BidSuccess, Participant } from "@/lib/dto/participant";
+import { Participant } from "@/lib/dto/participant";
 import Image from "next/image";
 import { CandidateLine, Lines } from "@/lib/dto/candidate";
+import { MAX_POINTS } from "@/lib/constants";
 
 const Item = ({
   name,
@@ -51,6 +52,13 @@ const EmptyItem = ({ line }: { line: CandidateLine }) => {
 };
 
 const Participant = ({ participant }: { participant: Participant }) => {
+  const pointsLeft =
+    MAX_POINTS -
+    Object.values(participant.items).reduce(
+      (acc, cur) => acc + (cur?.bidAmount ?? 0),
+      0
+    );
+
   return (
     <div
       className={
@@ -60,10 +68,20 @@ const Participant = ({ participant }: { participant: Participant }) => {
       <div
         // center text
         className={
-          "col-span-1 row-span-1 mt-3 flex items-center justify-center text-2xl font-semibold"
+          "col-span-1 row-span-1 mt-3 grid grid-cols-6 grid-rows-1 items-center justify-center text-2xl font-semibold"
         }
       >
-        {participant.name}
+        {/*{participant.name}*/}
+
+        {/*name on left*/}
+        <div className={"col-span-3 row-span-1 m-6 text-left"}>
+          {participant.name}
+        </div>
+        {/*points on right*/}
+        <div className={"col-span-3 row-span-1 m-6 text-right"}>
+          {pointsLeft}
+          {" points"}
+        </div>
       </div>
       <div
         className={

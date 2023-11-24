@@ -1,13 +1,14 @@
 import { BidSuccess, Participant } from "@/lib/dto/participant";
 import { nanoid } from "nanoid";
 import { faker } from "@faker-js/faker";
+import { MAX_POINTS } from "@/lib/constants";
 
 const PARTICIPANTS_NUM = 6;
 
 const getMockBidSuccess = (
   line: BidSuccess["candidate"]["line"]
 ): BidSuccess => ({
-  bidAmount: Math.floor(Math.random() * 1000),
+  bidAmount: Math.floor(Math.random() * (MAX_POINTS / 5)),
   candidate: {
     name: faker.person.firstName(),
     line,
