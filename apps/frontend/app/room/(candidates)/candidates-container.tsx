@@ -3,7 +3,7 @@ import { Candidate } from "@/lib/dto/candidate";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const Candidate = ({ candidate }: { candidate: Candidate }) => {
+const CandidateIcon = ({ candidate }: { candidate: Candidate }) => {
   return (
     <div className={"flex items-center justify-center"}>
       <div className={"flex flex-col items-center justify-center"}>
@@ -28,7 +28,7 @@ const Candidate = ({ candidate }: { candidate: Candidate }) => {
   );
 };
 
-const EmptyCandidate = () => {
+const EmptyCandidateIcon = () => {
   return (
     <div className={"flex items-center justify-center"}>
       <div className={"flex flex-col items-center justify-center"}>
@@ -54,9 +54,9 @@ const CandidatesRow = ({ candidates }: { candidates: OptionalCandidate[] }) => {
         .slice(0, MAX_CANDIDATES_PER_ROW)
         .map((candidate, i) =>
           candidate ? (
-            <Candidate key={i} candidate={candidate} />
+            <CandidateIcon key={i} candidate={candidate} />
           ) : (
-            <EmptyCandidate key={i} />
+            <EmptyCandidateIcon key={i} />
           )
         )}
     </div>

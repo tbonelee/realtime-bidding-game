@@ -51,7 +51,7 @@ const EmptyItem = ({ line }: { line: CandidateLine }) => {
   );
 };
 
-const Participant = ({ participant }: { participant: Participant }) => {
+const ParticipantBox = ({ participant }: { participant: Participant }) => {
   const pointsLeft =
     MAX_POINTS -
     Object.values(participant.items).reduce(
@@ -117,7 +117,7 @@ export const ParticipantsContainer = ({
       <div className={"grid h-full w-full grid-rows-6 gap-2"}>
         {participants &&
           participants.map((participant) => (
-            <Participant key={participant.id} participant={participant} />
+            <ParticipantBox key={participant.id} participant={participant} />
           ))}
       </div>
     </div>

@@ -3,6 +3,7 @@ import { Noto_Sans_KR, Roboto } from "next/font/google";
 import "./globals.css";
 import { cls } from "@/lib/class-name";
 import Providers from "@/app/providers";
+import React from "react";
 
 const roboto = Roboto({
   subsets: ["latin"],

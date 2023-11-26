@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { SVGProps } from "react";
 
 export const RefreshRoomsButton = () => {
   return (
@@ -17,7 +18,7 @@ export const RefreshRoomsButton = () => {
   );
 };
 
-function IconRefresh(props: React.SVGProps<SVGSVGElement>) {
+function IconRefresh(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

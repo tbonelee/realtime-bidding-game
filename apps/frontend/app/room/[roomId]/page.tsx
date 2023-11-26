@@ -10,6 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Log } from "@/lib/dto/log";
 
 export default function RoomPage({ params }: { params: { roomId: string } }) {
+  console.log("room page", params);
   const { data: participants } = useQuery({
     queryKey: ["participants"],
     queryFn: () => {

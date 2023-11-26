@@ -6,15 +6,21 @@ const MOCK_CANDIDATES_LENGTH = 30;
 
 const getRandomLines = () => {
   const lines: CandidateLine[] = [];
-  const lineCount = [0, 0, 0, 0, 0];
+  const lineCounts = [0, 0, 0, 0, 0];
   const maxLineCount = 6;
   for (let i = 0; i < 6; i++) {
+    // eslint-disable-next-line no-constant-condition
     while (true) {
       const lineIndex = Math.floor(Math.random() * 5);
-      if (lineCount[lineIndex] < maxLineCount) {
-        const line = Lines[lineIndex];
+      const lineCount = lineCounts[lineIndex];
+      const line = Lines[lineIndex];
+      if (
+        lineCount !== undefined &&
+        line !== undefined &&
+        lineCount < maxLineCount
+      ) {
         lines.push(line);
-        lineCount[lineIndex]++;
+        lineCounts[lineIndex]++;
         break;
       }
     }
@@ -33,7 +39,7 @@ export const mockCandidates: Candidate[] = Array.from(
       width: 200,
       height: 200,
     }),
-    line: randomLines[i],
+    line: randomLines[i] as CandidateLine,
   })
 );
 
