@@ -8,9 +8,22 @@ import { useQuery } from "@tanstack/react-query";
 import { Participant } from "lib/dto/participant";
 import { Candidate } from "lib/dto/candidate";
 import { Log } from "lib/dto/log";
+import { useGlobalChannel } from "@/hook/use-global-room-channel";
+import { RoomEnterMessage } from "lib/dto/message";
+import AblyClientProvider from "@/app/room/[roomId]/ably-client-provider";
 
 export default function RoomPage({ params }: { params: { roomId: string } }) {
+  return (
+    <AblyClientProvider>
+      <_RoomPage params={params} />
+    </AblyClientProvider>
+  );
+}
+
+function _RoomPage({ params }: { params: { roomId: string } }) {
   console.log("room page", params);
+  const { channel: globalChannel } = useGlobalChannel();
+
   const { data: participants } = useQuery({
     queryKey: ["participants"],
     queryFn: () => {
@@ -51,6 +64,17 @@ export default function RoomPage({ params }: { params: { roomId: string } }) {
     },
   });
 
+  useEffect(() => {
+    const roomEnterData: RoomEnterMessage["data"] = {
+      roomId: params.roomId,
+    };
+    globalChannel;
+    globalChannel.presence
+      .enter(roomEnterData)
+      .then(() => console.log("enter success"))
+      .catch((err) => console.log("enter failed", err));
+  }, []);
+
   const NUM_NOT_YET_AUCTIONED = 13;
   const NUM_FAILED_TO_AUCTION = 3;
 
@@ -73,15 +97,17 @@ export default function RoomPage({ params }: { params: { roomId: string } }) {
   }, [candidates]);
 
   return (
-    <div className={"grid h-full w-full grid-cols-8 grid-rows-1 gap-2"}>
-      {participants && <ParticipantsContainer participants={participants} />}
+    <AblyClientProvider>
+      <div className={"grid h-full w-full grid-cols-8 grid-rows-1 gap-2"}>
+        {participants && <ParticipantsContainer participants={participants} />}
 
-      {logs && <GameInfoContainer logs={logs} />}
+        {logs && <GameInfoContainer logs={logs} />}
 
-      <CandidatesContainer
-        candidatesNotYetAuctioned={candidatesNotYetAuctioned}
-        candidatesFailedToAuction={candidatesFailedToAuction}
-      />
-    </div>
+        <CandidatesContainer
+          candidatesNotYetAuctioned={candidatesNotYetAuctioned}
+          candidatesFailedToAuction={candidatesFailedToAuction}
+        />
+      </div>
+    </AblyClientProvider>
   );
 }

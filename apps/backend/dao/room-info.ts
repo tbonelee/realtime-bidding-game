@@ -6,8 +6,8 @@ export const roomExists = (roomId: string) => {
   return !!roomInfos[roomId];
 };
 
-export const createRoom = (roomId: string, roomInfo: RoomInfo) => {
-  roomInfos[roomId] = roomInfo;
+export const createRoom = (roomInfo: RoomInfo) => {
+  roomInfos[roomInfo.id] = roomInfo;
 };
 
 export const getRoom = (roomId: string) => {

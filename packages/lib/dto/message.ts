@@ -7,5 +7,4 @@ export type RoomEnterMessage = Omit<PresenceMessage, "data"> & {
 
 type RoomEnterData = {
   roomId: string;
-  userId: string;
 };
