@@ -1,4 +1,4 @@
-import { mockParticipants } from "@/lib/participants.mock";
+import { mockParticipants } from "lib/participants.mock";
 
 export const dynamic = "force-dynamic";
 const participants = mockParticipants;

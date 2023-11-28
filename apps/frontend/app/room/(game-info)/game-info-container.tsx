@@ -1,6 +1,6 @@
 "use client";
 
-import { Log } from "@/lib/dto/log";
+import { Log } from "lib/dto/log";
 
 const GameController = () => {
   return <div className={"row-span-1 m-6"}>{"경매 버튼 들어갈 자리"}</div>;

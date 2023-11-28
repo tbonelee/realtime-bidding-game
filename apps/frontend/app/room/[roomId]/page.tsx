@@ -3,11 +3,11 @@
 import { ParticipantsContainer } from "@/app/room/(participants)/participants-container";
 import { GameInfoContainer } from "@/app/room/(game-info)/game-info-container";
 import { CandidatesContainer } from "@/app/room/(candidates)/candidates-container";
-import { Participant } from "@/lib/dto/participant";
-import { Candidate } from "@/lib/dto/candidate";
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Log } from "@/lib/dto/log";
+import { Participant } from "lib/dto/participant";
+import { Candidate } from "lib/dto/candidate";
+import { Log } from "lib/dto/log";
 
 export default function RoomPage({ params }: { params: { roomId: string } }) {
   console.log("room page", params);

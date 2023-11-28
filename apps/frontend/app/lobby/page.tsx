@@ -1,10 +1,10 @@
-import { isRoomFull } from "@/lib/is-room-full";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MAX_PLAYERS } from "@/lib/constants";
 import { LinkButton } from "@/components/ui/link-button";
 import { nanoid } from "nanoid";
 import { RefreshRoomsButton } from "@/app/lobby/refresh-rooms-button";
-import { mockRooms, refreshMockRooms } from "@/lib/room-info.mock";
+import { mockRooms, refreshMockRooms } from "lib/room-info.mock";
+import { isRoomFull } from "lib/is-room-full";
+import { MAX_PLAYERS } from "lib/constants";
 
 const getRooms = async () => {
   refreshMockRooms();

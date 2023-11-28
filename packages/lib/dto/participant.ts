@@ -1,4 +1,4 @@
-import { Candidate, CandidateLine } from "@/lib/dto/candidate";
+import {Candidate, CandidateLine} from "./candidate"; // 낙찰 성공 정보
 
 // 낙찰 성공 정보
 export type BidSuccess = {

@@ -1,5 +1,5 @@
 "use client";
-import { Candidate } from "@/lib/dto/candidate";
+import { Candidate } from "lib/dto/candidate";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 

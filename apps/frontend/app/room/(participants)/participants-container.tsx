@@ -1,9 +1,9 @@
 "use client";
 
-import { Participant } from "@/lib/dto/participant";
+import { MAX_POINTS } from "lib/constants";
+import { CandidateLine, Lines } from "lib/dto/candidate";
+import { Participant } from "lib/dto/participant";
 import Image from "next/image";
-import { CandidateLine, Lines } from "@/lib/dto/candidate";
-import { MAX_POINTS } from "@/lib/constants";
 
 const Item = ({
   name,

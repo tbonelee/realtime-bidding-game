@@ -1,0 +1,31 @@
+{
+  "name": "realtime-bidding-game-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/server",
+    "dev": "ts-node-dev --transpile-only --respawn -r tsconfig-paths/register --watch ./src/**/*.pug,./src/**/*.graphql,./src/**/*.ts --trace-warnings --trace-uncaught -- ./src/server.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "@tsconfig/node20": "^20.1.2",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.3.2"
+  },
+  "ts-node": {
+    "esm": true
+  }
+}

@@ -1,6 +1,6 @@
-import { Candidate, CandidateLine, Lines } from "@/lib/dto/candidate";
 import { faker } from "@faker-js/faker";
 import { nanoid } from "nanoid";
+import { Candidate, CandidateLine, Lines } from "./dto/candidate";
 
 const MOCK_CANDIDATES_LENGTH = 30;
 
@@ -40,7 +40,7 @@ export const mockCandidates: Candidate[] = Array.from(
       height: 200,
     }),
     line: randomLines[i] as CandidateLine,
-  })
+  }),
 );
 
 console.log(
@@ -49,5 +49,5 @@ console.log(
     width: 200,
     height: 200,
   }),
-  faker.internet.userName()
+  faker.internet.userName(),
 );

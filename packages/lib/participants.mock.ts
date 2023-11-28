@@ -1,12 +1,12 @@
-import { BidSuccess, Participant } from "@/lib/dto/participant";
 import { nanoid } from "nanoid";
 import { faker } from "@faker-js/faker";
-import { MAX_POINTS } from "@/lib/constants";
+import { BidSuccess, Participant } from "./dto/participant";
+import { MAX_POINTS } from "./constants";
 
 const PARTICIPANTS_NUM = 6;
 
 const getMockBidSuccess = (
-  line: BidSuccess["candidate"]["line"]
+  line: BidSuccess["candidate"]["line"],
 ): BidSuccess => ({
   bidAmount: Math.floor(Math.random() * (MAX_POINTS / 5)),
   candidate: {
@@ -36,5 +36,5 @@ export const mockParticipants: Participant[] = Array.from(
       JUNGLE: goRandomByPercent(0.5) ? getMockBidSuccess("JUNGLE") : null,
       SUPPORT: goRandomByPercent(0.5) ? getMockBidSuccess("SUPPORT") : null,
     },
-  })
+  }),
 );

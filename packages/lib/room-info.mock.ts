@@ -1,6 +1,6 @@
-import { RoomInfo } from "@/lib/dto/room-info";
 import { nanoid } from "nanoid";
 import { fakerKO as faker } from "@faker-js/faker";
+import { RoomInfo } from "./dto/room-info";
 
 const _fakeUser = () => {
   return {
@@ -25,7 +25,7 @@ const MAX_ROOMS = 20;
 
 export const mockRooms: RoomInfo[] = Array.from(
   { length: Math.floor(Math.random() * (MAX_ROOMS - MIN_ROOMS)) + MIN_ROOMS },
-  _fakerRoom
+  _fakerRoom,
 );
 
 export const refreshMockRooms = () => {
@@ -35,7 +35,7 @@ export const refreshMockRooms = () => {
       {
         length: Math.floor(Math.random() * (MAX_ROOMS - MIN_ROOMS)) + MIN_ROOMS,
       },
-      _fakerRoom
-    )
+      _fakerRoom,
+    ),
   );
 };
