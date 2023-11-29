@@ -75,7 +75,7 @@ const ParticipantBox = ({ participant }: { participant: Participant }) => {
 
         {/*name on left*/}
         <div className={"col-span-3 row-span-1 m-6 text-left"}>
-          {participant.name}
+          {participant.id}
         </div>
         {/*points on right*/}
         <div className={"col-span-3 row-span-1 m-6 text-right"}>

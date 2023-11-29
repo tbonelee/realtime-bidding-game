@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 import { RefreshRoomsButton } from "@/app/lobby/refresh-rooms-button";
 import { mockRooms, refreshMockRooms } from "lib/room-info.mock";
 import { isRoomFull } from "lib/is-room-full";
-import { MAX_PLAYERS } from "lib/constants";
+import { MAX_PARTICIPANTS } from "lib/constants";
 
 const getRooms = async () => {
   refreshMockRooms();
@@ -34,11 +34,11 @@ export default async function Home() {
               .map((room) => (
                 <Card key={room.id}>
                   <CardHeader className="flex items-center justify-between">
-                    <CardTitle>{room.name}</CardTitle>
+                    <CardTitle>{room.id}</CardTitle>
                   </CardHeader>
                   <CardContent className="flex items-center justify-between">
                     <span className="text- text-base">
-                      {room.players.length}/{MAX_PLAYERS}
+                      {room.players.length}/{MAX_PARTICIPANTS}
                     </span>
                     <LinkButton
                       href={"/room/" + room.id}

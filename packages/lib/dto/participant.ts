@@ -8,6 +8,5 @@ export type BidSuccess = {
 
 export type Participant = {
   id: string;
-  name: string;
   items: Record<CandidateLine, null | BidSuccess>;
 };

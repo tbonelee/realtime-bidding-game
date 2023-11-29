@@ -1,4 +1,6 @@
 const path = require("path");
 
-require("ts-node").register();
-require(path.resolve(__dirname, "./server-worker.ts"));
+// require("ts-node").register();
+const workerPath = path.resolve(__dirname, "./server-worker.ts");
+console.log("workerPath: ", workerPath);
+require(workerPath);

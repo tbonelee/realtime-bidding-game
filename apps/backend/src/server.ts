@@ -40,7 +40,8 @@ const isRoomEnterMessage = (data: unknown): data is RoomEnterMessage => {
 };
 
 function generateNewRoomThread(roomId: string) {
-  if (roomExists(roomId) === true) {
+  console.log("generateNewRoomThread", roomId);
+  if (roomExists(roomId)) {
     return;
   }
   // 중복 생성 막기 위해 room 존재 여부 확인 후 바로 방 데이터 생성
@@ -52,7 +53,14 @@ function generateNewRoomThread(roomId: string) {
   const workerData: WorkerData = {
     roomId,
   };
-  const workerPath = path.resolve(__dirname, "./worker.js");
+  // file name
+  const fileName = path.basename(__filename);
+  const isTs = fileName.endsWith(".ts");
+  const workerPath = path.resolve(
+    __dirname,
+    isTs ? "server-worker.ts" : "worker.js",
+  );
+  console.log("workerPath", workerPath);
   const worker = new Worker(workerPath, {
     workerData,
   });
@@ -93,7 +101,7 @@ const init = async () => {
         data: { roomId },
       } = message;
 
-      if (roomExists(roomId) === true) {
+      if (roomExists(roomId)) {
         return;
       }
 
